@@ -1,11 +1,14 @@
 #!/usr/bin/python3
 import sys
+import math
 
 def factorize(number):
-    for i in range(2, number + 1):
+    sqrt_number = int(math.sqrt(number)) + 1
+
+    for i in range(2, sqrt_number):
         if number % i == 0:
             print(f"{number}={i}*{number // i}")
-            break
+            return
 def main():
     if len(sys.argv) < 2:
         print("Usage: ./factorize <file>")
