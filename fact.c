@@ -15,7 +15,7 @@ void factorize(mpz_t number)
 
         if (mpz_cmp_ui(remainder, 0) == 0)
         {
-            gmp_printf("%Zd=%Zd*%Zd\n", number, i, quotient);
+            gmp_printf("%Zd=%Zd*%Zd\n", number, quotient, i);
             break;
         }
 
