@@ -27,10 +27,7 @@ def main():
             for line in file:
                 number = int(line.strip())
                 factorize(number)
-    except FileNotFoundError:
-        print("Failed to open the file.")
-        return
-    return
-
+    finally:
+    	return
 if __name__ == '__main__':
     main()
