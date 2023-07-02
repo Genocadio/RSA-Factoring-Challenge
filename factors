@@ -4,7 +4,7 @@ import sys
 def factorize(number):
     for i in range(2, number + 1):
         if number % i == 0:
-            print(f"{i}*{number // i}={number}")
+            print(f"{number}={i}*{number // i}")
             break
 def main():
     if len(sys.argv) < 2:
