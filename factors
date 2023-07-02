@@ -4,12 +4,12 @@ import sys
 def factorize(number):
     for i in range(2, number + 1):
         if number % i == 0:
-            print(f"{number}={i}*{number // i}")
+            print(f"{i}*{number // i}={number}")
             break
 def main():
     if len(sys.argv) < 2:
         print("Usage: ./factorize <file>")
-        return 1
+        return
 
     filename = sys.argv[1]
 
@@ -20,9 +20,9 @@ def main():
                 factorize(number)
     except FileNotFoundError:
         print("Failed to open the file.")
-        return 1
+        return
 
-    return 0
+    return
 
 if __name__ == "__main__":
-    sys.exit(main())
+    main()
