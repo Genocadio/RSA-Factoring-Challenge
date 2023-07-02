@@ -1,30 +1,23 @@
 #!/usr/bin/python3
 import sys
-import math
 
-def generate_sieve(size):
-    sieve = [True] * (size + 1)
-    sieve[0] = sieve[1] = False
-
-    for i in range(2, int(math.sqrt(size)) + 1):
-        if sieve[i]:
-            for j in range(i * i, size + 1, i):
-                sieve[j] = False
-
-    return sieve
+def is_prime(number):
+    if number < 2:
+        return False
+    for i in range(2, int(number ** 0.5) + 1):
+        if number % i == 0:
+            return False
+    return True
 
 def factorize(number):
-    sqrt_number = int(math.sqrt(number)) + 1
-    sieve = generate_sieve(sqrt_number)
-
-    for i in range(2, sqrt_number):
-        if number % i == 0 and sieve[i] and sieve[number // i]:
+    for i in range(2, number + 1):
+        if number % i == 0 and is_prime(i):
             print(f"{number}={i}*{number // i}")
-            return
+            break
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: ./factorize <file>")
+        print("Usage: factors <file>")
         return
 
     filename = sys.argv[1]
@@ -37,6 +30,7 @@ def main():
     except FileNotFoundError:
         print("Failed to open the file.")
         return
+    return
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
